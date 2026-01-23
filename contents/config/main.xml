@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name="kwin_squashplus_config"/>
+    <group name="General">
+        <entry name="Duration" type="Int">
+            <default>250</default>
+            <label>Animation duration in milliseconds</label>
+        </entry>
+        <entry name="Opacity" type="Int">
+            <default>100</default>
+            <label>Final opacity of the window when minimized (percentage)</label>
+        </entry>
+        <entry name="AnimationCurveMinimize" type="Enum">
+            <label>The animation curve to use</label>
+            <default>OutExpo</default>
+            <choices>
+                <choice name="Linear">
+                    <label>Linear (No Acceleration)</label>
+                </choice>
+
+                <choice name="OutSine">
+                    <label>Gentle - Ease Out (Sine)</label>
+                </choice>
+                <choice name="InSine">
+                    <label>Gentle - Ease In (Sine)</label>
+                </choice>
+                <choice name="InOutSine">
+                    <label>Gentle - Ease In-Out (Sine)</label>
+                </choice>
+
+                <choice name="OutQuad">
+                    <label>Standard - Ease Out (Quad)</label>
+                </choice>
+                <choice name="InQuad">
+                    <label>Standard - Ease In (Quad)</label>
+                </choice>
+                <choice name="InOutQuad">
+                    <label>Standard - Ease In-Out (Quad)</label>
+                </choice>
+                <choice name="OutCubic">
+                    <label>Standard - Stronger Out (Cubic)</label>
+                </choice>
+                <choice name="InCubic">
+                    <label>Standard - Stronger In (Cubic)</label>
+                </choice>
+                <choice name="InOutCubic">
+                    <label>Standard - Stronger In-Out (Cubic)</label>
+                </choice>
+
+                <choice name="OutQuart">
+                    <label>Sharp - Ease Out (Quart)</label>
+                </choice>
+                <choice name="InQuart">
+                    <label>Sharp - Ease In (Quart)</label>
+                </choice>
+                <choice name="InOutQuart">
+                    <label>Sharp - Ease In-Out (Quart)</label>
+                </choice>
+                <choice name="OutQuint">
+                    <label>Sharp - Aggressive Out (Quint)</label>
+                </choice>
+                <choice name="InQuint">
+                    <label>Sharp - Aggressive In (Quint)</label>
+                </choice>
+                <choice name="InOutQuint">
+                    <label>Sharp - Aggressive In-Out (Quint)</label>
+                </choice>
+                <choice name="OutExpo">
+                    <label>Snappy - Instant Start (Expo) [Default]</label>
+                </choice>
+                <choice name="InExpo">
+                    <label>Snappy - Instant End (Expo)</label>
+                </choice>
+                <choice name="InOutExpo">
+                    <label>Snappy - Instant Middle (Expo)</label>
+                </choice>
+
+                <choice name="OutCirc">
+                    <label>Sudden - Abrupt Stop (Circ)</label>
+                </choice>
+                <choice name="InCirc">
+                    <label>Sudden - Abrupt Start (Circ)</label>
+                </choice>
+                <choice name="InOutCirc">
+                    <label>Sudden - Abrupt Both (Circ)</label>
+                </choice>
+
+                <choice name="OutBack">
+                    <label>Physics - Overshoot End (Back)</label>
+                </choice>
+                <choice name="InBack">
+                    <label>Physics - Anticipate Start (Back)</label>
+                </choice>
+                <choice name="InOutBack">
+                    <label>Physics - Anticipate &amp; Overshoot (Back)</label>
+                </choice>
+
+                <choice name="OutElastic">
+                    <label>Physics - Elastic Wobble (Elastic)</label>
+                </choice>
+                <choice name="InElastic">
+                    <label>Physics - Elastic Windup (Elastic)</label>
+                </choice>
+                <choice name="InOutElastic">
+                    <label>Physics - Elastic Both (Elastic)</label>
+                </choice>
+
+                <choice name="OutBounce">
+                    <label>Physics - Bounce (Bounce)</label>
+                </choice>
+                <choice name="InBounce">
+                    <label>Physics - Reverse Bounce (Bounce)</label>
+                </choice>
+                <choice name="InOutBounce">
+                    <label>Physics - Bounce Both (Bounce)</label>
+                </choice>
+            </choices>
+        </entry>
+        <entry name="AnimationCurveUnminimize" type="Enum">
+            <label>The animation curve to use</label>
+            <default>OutExpo</default>
+            <choices>
+                <choice name="Linear">
+                    <label>Linear (No Acceleration)</label>
+                </choice>
+
+                <choice name="OutSine">
+                    <label>Gentle - Ease Out (Sine)</label>
+                </choice>
+                <choice name="InSine">
+                    <label>Gentle - Ease In (Sine)</label>
+                </choice>
+                <choice name="InOutSine">
+                    <label>Gentle - Ease In-Out (Sine)</label>
+                </choice>
+
+                <choice name="OutQuad">
+                    <label>Standard - Ease Out (Quad)</label>
+                </choice>
+                <choice name="InQuad">
+                    <label>Standard - Ease In (Quad)</label>
+                </choice>
+                <choice name="InOutQuad">
+                    <label>Standard - Ease In-Out (Quad)</label>
+                </choice>
+                <choice name="OutCubic">
+                    <label>Standard - Stronger Out (Cubic)</label>
+                </choice>
+                <choice name="InCubic">
+                    <label>Standard - Stronger In (Cubic)</label>
+                </choice>
+                <choice name="InOutCubic">
+                    <label>Standard - Stronger In-Out (Cubic)</label>
+                </choice>
+
+                <choice name="OutQuart">
+                    <label>Sharp - Ease Out (Quart)</label>
+                </choice>
+                <choice name="InQuart">
+                    <label>Sharp - Ease In (Quart)</label>
+                </choice>
+                <choice name="InOutQuart">
+                    <label>Sharp - Ease In-Out (Quart)</label>
+                </choice>
+                <choice name="OutQuint">
+                    <label>Sharp - Aggressive Out (Quint)</label>
+                </choice>
+                <choice name="InQuint">
+                    <label>Sharp - Aggressive In (Quint)</label>
+                </choice>
+                <choice name="InOutQuint">
+                    <label>Sharp - Aggressive In-Out (Quint)</label>
+                </choice>
+                <choice name="OutExpo">
+                    <label>Snappy - Instant Start (Expo) [Default]</label>
+                </choice>
+                <choice name="InExpo">
+                    <label>Snappy - Instant End (Expo)</label>
+                </choice>
+                <choice name="InOutExpo">
+                    <label>Snappy - Instant Middle (Expo)</label>
+                </choice>
+
+                <choice name="OutCirc">
+                    <label>Sudden - Abrupt Stop (Circ)</label>
+                </choice>
+                <choice name="InCirc">
+                    <label>Sudden - Abrupt Start (Circ)</label>
+                </choice>
+                <choice name="InOutCirc">
+                    <label>Sudden - Abrupt Both (Circ)</label>
+                </choice>
+
+                <choice name="OutBack">
+                    <label>Physics - Overshoot End (Back)</label>
+                </choice>
+                <choice name="InBack">
+                    <label>Physics - Anticipate Start (Back)</label>
+                </choice>
+                <choice name="InOutBack">
+                    <label>Physics - Anticipate &amp; Overshoot (Back)</label>
+                </choice>
+
+                <choice name="OutElastic">
+                    <label>Physics - Elastic Wobble (Elastic)</label>
+                </choice>
+                <choice name="InElastic">
+                    <label>Physics - Elastic Windup (Elastic)</label>
+                </choice>
+                <choice name="InOutElastic">
+                    <label>Physics - Elastic Both (Elastic)</label>
+                </choice>
+
+                <choice name="OutBounce">
+                    <label>Physics - Bounce (Bounce)</label>
+                </choice>
+                <choice name="InBounce">
+                    <label>Physics - Reverse Bounce (Bounce)</label>
+                </choice>
+                <choice name="InOutBounce">
+                    <label>Physics - Bounce Both (Bounce)</label>
+                </choice>
+            </choices>
+        </entry>
+    </group>
+</kcfg>

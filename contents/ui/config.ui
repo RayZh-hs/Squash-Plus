@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>Form</class>
+    <widget class="QWidget" name="Form">
+        <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+                <widget class="QLabel" name="label_Duration">
+                    <property name="text">
+                        <string>Duration (ms):</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="0" column="1">
+                <widget class="QSpinBox" name="kcfg_Duration">
+                    <property name="minimum">
+                        <number>50</number>
+                    </property>
+                    <property name="maximum">
+                        <number>5000</number>
+                    </property>
+                    <property name="singleStep">
+                        <number>50</number>
+                    </property>
+                    <property name="value">
+                        <number>250</number>
+                    </property>
+                </widget>
+            </item>
+
+            <item row="1" column="0">
+                <widget class="QLabel" name="label_Opacity">
+                    <property name="text">
+                        <string>Opacity (%):</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="1" column="1">
+                <widget class="QSpinBox" name="kcfg_Opacity">
+                    <property name="minimum">
+                        <number>0</number>
+                    </property>
+                    <property name="maximum">
+                        <number>100</number>
+                    </property>
+                    <property name="singleStep">
+                        <number>10</number>
+                    </property>
+                    <property name="value">
+                        <number>100</number>
+                    </property>
+                </widget>
+            </item>
+
+            <item row="2" column="0">
+                <widget class="QLabel" name="label_CurveMin">
+                    <property name="text">
+                        <string>Minimize Curve:</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="2" column="1">
+                <widget class="QComboBox" name="kcfg_AnimationCurveMinimize">
+                    <item><property name="text"><string>Linear (No Acceleration)</string></property></item>
+
+                    <item><property name="text"><string>Gentle - Ease Out (Sine)</string></property></item>
+                    <item><property name="text"><string>Gentle - Ease In (Sine)</string></property></item>
+                    <item><property name="text"><string>Gentle - Ease In-Out (Sine)</string></property></item>
+
+                    <item><property name="text"><string>Standard - Ease Out (Quad)</string></property></item>
+                    <item><property name="text"><string>Standard - Ease In (Quad)</string></property></item>
+                    <item><property name="text"><string>Standard - Ease In-Out (Quad)</string></property></item>
+                    <item><property name="text"><string>Standard - Stronger Out (Cubic)</string></property></item>
+                    <item><property name="text"><string>Standard - Stronger In (Cubic)</string></property></item>
+                    <item><property name="text"><string>Standard - Stronger In-Out (Cubic)</string></property></item>
+
+                    <item><property name="text"><string>Sharp - Ease Out (Quart)</string></property></item>
+                    <item><property name="text"><string>Sharp - Ease In (Quart)</string></property></item>
+                    <item><property name="text"><string>Sharp - Ease In-Out (Quart)</string></property></item>
+                    <item><property name="text"><string>Sharp - Aggressive Out (Quint)</string></property></item>
+                    <item><property name="text"><string>Sharp - Aggressive In (Quint)</string></property></item>
+                    <item><property name="text"><string>Sharp - Aggressive In-Out (Quint)</string></property></item>
+                    <item><property name="text"><string>Snappy - Instant Start (Expo)</string></property></item>
+                    <item><property name="text"><string>Snappy - Instant End (Expo)</string></property></item>
+                    <item><property name="text"><string>Snappy - Instant Middle (Expo)</string></property></item>
+
+                    <item><property name="text"><string>Sudden - Abrupt Stop (Circ)</string></property></item>
+                    <item><property name="text"><string>Sudden - Abrupt Start (Circ)</string></property></item>
+                    <item><property name="text"><string>Sudden - Abrupt Both (Circ)</string></property></item>
+
+                    <item><property name="text"><string>Physics - Overshoot End (Back)</string></property></item>
+                    <item><property name="text"><string>Physics - Anticipate Start (Back)</string></property></item>
+                    <item><property name="text"><string>Physics - Anticipate &amp; Overshoot (Back)</string></property></item>
+
+                    <item><property name="text"><string>Physics - Elastic Wobble (Elastic)</string></property></item>
+                    <item><property name="text"><string>Physics - Elastic Windup (Elastic)</string></property></item>
+                    <item><property name="text"><string>Physics - Elastic Both (Elastic)</string></property></item>
+
+                    <item><property name="text"><string>Physics - Bounce (Bounce)</string></property></item>
+                    <item><property name="text"><string>Physics - Reverse Bounce (Bounce)</string></property></item>
+                    <item><property name="text"><string>Physics - Bounce Both (Bounce)</string></property></item>
+                </widget>
+            </item>
+
+            <item row="3" column="0">
+                <widget class="QLabel" name="label_CurveUnmin">
+                    <property name="text">
+                        <string>Unminimize Curve:</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="3" column="1">
+                <widget class="QComboBox" name="kcfg_AnimationCurveUnminimize">
+                    <item><property name="text"><string>Linear (No Acceleration)</string></property></item>
+
+                    <item><property name="text"><string>Gentle - Ease Out (Sine)</string></property></item>
+                    <item><property name="text"><string>Gentle - Ease In (Sine)</string></property></item>
+                    <item><property name="text"><string>Gentle - Ease In-Out (Sine)</string></property></item>
+
+                    <item><property name="text"><string>Standard - Ease Out (Quad)</string></property></item>
+                    <item><property name="text"><string>Standard - Ease In (Quad)</string></property></item>
+                    <item><property name="text"><string>Standard - Ease In-Out (Quad)</string></property></item>
+                    <item><property name="text"><string>Standard - Stronger Out (Cubic)</string></property></item>
+                    <item><property name="text"><string>Standard - Stronger In (Cubic)</string></property></item>
+                    <item><property name="text"><string>Standard - Stronger In-Out (Cubic)</string></property></item>
+
+                    <item><property name="text"><string>Sharp - Ease Out (Quart)</string></property></item>
+                    <item><property name="text"><string>Sharp - Ease In (Quart)</string></property></item>
+                    <item><property name="text"><string>Sharp - Ease In-Out (Quart)</string></property></item>
+                    <item><property name="text"><string>Sharp - Aggressive Out (Quint)</string></property></item>
+                    <item><property name="text"><string>Sharp - Aggressive In (Quint)</string></property></item>
+                    <item><property name="text"><string>Sharp - Aggressive In-Out (Quint)</string></property></item>
+                    <item><property name="text"><string>Snappy - Instant Start (Expo)</string></property></item>
+                    <item><property name="text"><string>Snappy - Instant End (Expo)</string></property></item>
+                    <item><property name="text"><string>Snappy - Instant Middle (Expo)</string></property></item>
+
+                    <item><property name="text"><string>Sudden - Abrupt Stop (Circ)</string></property></item>
+                    <item><property name="text"><string>Sudden - Abrupt Start (Circ)</string></property></item>
+                    <item><property name="text"><string>Sudden - Abrupt Both (Circ)</string></property></item>
+
+                    <item><property name="text"><string>Physics - Overshoot End (Back)</string></property></item>
+                    <item><property name="text"><string>Physics - Anticipate Start (Back)</string></property></item>
+                    <item><property name="text"><string>Physics - Anticipate &amp; Overshoot (Back)</string></property></item>
+
+                    <item><property name="text"><string>Physics - Elastic Wobble (Elastic)</string></property></item>
+                    <item><property name="text"><string>Physics - Elastic Windup (Elastic)</string></property></item>
+                    <item><property name="text"><string>Physics - Elastic Both (Elastic)</string></property></item>
+
+                    <item><property name="text"><string>Physics - Bounce (Bounce)</string></property></item>
+                    <item><property name="text"><string>Physics - Reverse Bounce (Bounce)</string></property></item>
+                    <item><property name="text"><string>Physics - Bounce Both (Bounce)</string></property></item>
+                </widget>
+            </item>
+        </layout>
+    </widget>
+</ui>

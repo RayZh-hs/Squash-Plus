@@ -1,16 +1,77 @@
 /*
+ *
+ S PDX-FileCopyrig*htText:
 
-    SPDX-FileCopyrightText:
-
-    SPDX-License-Identifier: GPL-2.0-or-later
-*/
+ SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
 "use strict";
 
+var curveMapping = [
+                    // BASELINE
+                    QEasingCurve.Linear,
+
+                    // GENTLE (Sine)
+                    QEasingCurve.OutSine,
+                    QEasingCurve.InSine,
+                    QEasingCurve.InOutSine,
+
+                    // STANDARD (Quad, Cubic)
+                    QEasingCurve.OutQuad,
+                    QEasingCurve.InQuad,
+                    QEasingCurve.InOutQuad,
+                    QEasingCurve.OutCubic,
+                    QEasingCurve.InCubic,
+                    QEasingCurve.InOutCubic,
+
+                    // SHARP (Quart, Quint, Expo)
+                    QEasingCurve.OutQuart,
+                    QEasingCurve.InQuart,
+                    QEasingCurve.InOutQuart,
+                    QEasingCurve.OutQuint,
+                    QEasingCurve.InQuint,
+                    QEasingCurve.InOutQuint,
+                    QEasingCurve.OutExpo,
+                    QEasingCurve.InExpo,
+                    QEasingCurve.InOutExpo,
+
+                    // SUDDEN (Circ)
+                    QEasingCurve.OutCirc,
+                    QEasingCurve.InCirc,
+                    QEasingCurve.InOutCirc,
+
+                    // PHYSICS (Back)
+                    QEasingCurve.OutBack,
+                    QEasingCurve.InBack,
+                    QEasingCurve.InOutBack,
+
+                    // PHYSICS (Elastic)
+                    QEasingCurve.OutElastic,
+                    QEasingCurve.InElastic,
+                    QEasingCurve.InOutElastic,
+
+                    // PHYSICS (Bounce)
+                    QEasingCurve.OutBounce,
+                    QEasingCurve.InBounce,
+                    QEasingCurve.InOutBounce
+                    ];
+
 var squashEffect = {
     duration: animationTime(250),
+    opacity: 1.0,
+    curveMin: QEasingCurve.OutExpo,
+    curveUnmin: QEasingCurve.OutExpo,
     loadConfig: function () {
-        squashEffect.duration = animationTime(250);
+        squashEffect.duration = animationTime(effect.readConfig("Duration", 250));
+        squashEffect.opacity = effect.readConfig("Opacity", 100) / 100.0;
+
+        var minIndex = effect.readConfig("AnimationCurveMinimize", 16);
+        if (minIndex < 0 || minIndex >= curveMapping.length) minIndex = 16;
+        squashEffect.curveMin = curveMapping[minIndex];
+
+        var unminIndex = effect.readConfig("AnimationCurveUnminimize", 16);
+        if (unminIndex < 0 || unminIndex >= curveMapping.length) unminIndex = 16;
+        squashEffect.curveUnmin = curveMapping[unminIndex];
     },
     slotWindowMinimized: function (window) {
         if (effects.hasActiveFullScreenEffect) {
@@ -43,7 +104,7 @@ var squashEffect = {
 
         window.minimizeAnimation = animate({
             window: window,
-            curve: QEasingCurve.OutExpo,
+            curve: squashEffect.curveMin,
             duration: squashEffect.duration,
             animations: [
                 {
@@ -65,15 +126,15 @@ var squashEffect = {
                     },
                     to: {
                         value1: iconRect.x - windowRect.x -
-                            (windowRect.width - iconRect.width) / 2,
-                        value2: iconRect.y - windowRect.y -
-                            (windowRect.height - iconRect.height) / 2,
+                        (windowRect.width - iconRect.width) / 2,
+                                           value2: iconRect.y - windowRect.y -
+                                           (windowRect.height - iconRect.height) / 2,
                     }
                 },
                 {
                     type: Effect.Opacity,
                     from: 1.0,
-                    to: 1.0
+                    to: squashEffect.opacity
                 }
             ]
         });
@@ -109,7 +170,7 @@ var squashEffect = {
 
         window.unminimizeAnimation = animate({
             window: window,
-            curve: QEasingCurve.OutExpo,
+            curve: squashEffect.curveUnmin,
             duration: squashEffect.duration,
             animations: [
                 {
@@ -127,9 +188,9 @@ var squashEffect = {
                     type: Effect.Translation,
                     from: {
                         value1: iconRect.x - windowRect.x -
-                            (windowRect.width - iconRect.width) / 2,
-                        value2: iconRect.y - windowRect.y -
-                            (windowRect.height - iconRect.height) / 2,
+                        (windowRect.width - iconRect.width) / 2,
+                                             value2: iconRect.y - windowRect.y -
+                                             (windowRect.height - iconRect.height) / 2,
                     },
                     to: {
                         value1: 0.0,
@@ -138,7 +199,7 @@ var squashEffect = {
                 },
                 {
                     type: Effect.Opacity,
-                    from: 1.0,
+                    from: squashEffect.opacity,
                     to: 1.0
                 }
             ]
