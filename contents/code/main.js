@@ -66,6 +66,9 @@ var squashEffect = {
         squashEffect.duration = animationTime(effect.readConfig("Duration", 250));
         squashEffect.opacity = effect.readConfig("Opacity", 100) / 100.0;
         squashEffect.minimizeTarget = effect.readConfig("MinimizeTarget", 0);
+        if (squashEffect.minimizeTarget < 0 || squashEffect.minimizeTarget > 9) {
+            squashEffect.minimizeTarget = 0;
+        }
 
         var minIndex = effect.readConfig("AnimationCurveMinimize", 16);
         if (minIndex < 0 || minIndex >= curveMapping.length) minIndex = 16;
@@ -75,8 +78,30 @@ var squashEffect = {
         if (unminIndex < 0 || unminIndex >= curveMapping.length) unminIndex = 16;
         squashEffect.curveUnmin = curveMapping[unminIndex];
     },
+    getScreenRect: function (window) {
+        // KWin effects scripts don't provide `workspace`.
+        // Try per-window output geometry first, then virtual display bounds.
+        if (window && window.output && window.output.geometry) {
+            return window.output.geometry;
+        }
+
+        if (window && window.screenGeometry) {
+            return window.screenGeometry;
+        }
+
+        if (effects.virtualScreenGeometry) {
+            return effects.virtualScreenGeometry;
+        }
+
+        return {
+            x: 0,
+            y: 0,
+            width: effects.displayWidth,
+            height: effects.displayHeight
+        };
+    },
     getTargetRect: function (window) {
-        var screenRect = workspace.clientArea(0, window);
+        var screenRect = squashEffect.getScreenRect(window);
         var iconSize = 48; // Default icon size
         var targetRect = { x: 0, y: 0, width: iconSize, height: iconSize };
 
@@ -132,7 +157,6 @@ var squashEffect = {
         return targetRect;
     },
     slotWindowMinimized: function (window) {
-        console.log("SquashPlus: Window minimized event triggered for", window.caption);
         if (effects.hasActiveFullScreenEffect) {
             return;
         }
@@ -195,7 +219,6 @@ var squashEffect = {
         });
     },
     slotWindowUnminimized: function (window) {
-        console.log("SquashPlus: Window unminimized event triggered for", window.caption);
         if (effects.hasActiveFullScreenEffect) {
             return;
         }
