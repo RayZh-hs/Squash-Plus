@@ -65,7 +65,29 @@ var squashEffect = {
     loadConfig: function () {
         squashEffect.duration = animationTime(effect.readConfig("Duration", 250));
         squashEffect.opacity = effect.readConfig("Opacity", 100) / 100.0;
-        squashEffect.minimizeTarget = effect.readConfig("MinimizeTarget", 0);
+        var minimizeTargetValue = effect.readConfig("MinimizeTarget", 0);
+
+        // Depending on runtime/config migration path, enum values may come back
+        // either as index or as string name. Normalize to index.
+        if (typeof minimizeTargetValue === "string") {
+            var minimizeTargetMap = {
+                TaskManager: 0,
+                TopLeft: 1,
+                Top: 2,
+                TopRight: 3,
+                Left: 4,
+                Right: 5,
+                BottomLeft: 6,
+                Bottom: 7,
+                BottomRight: 8,
+                Mouse: 9
+            };
+            if (Object.prototype.hasOwnProperty.call(minimizeTargetMap, minimizeTargetValue)) {
+                minimizeTargetValue = minimizeTargetMap[minimizeTargetValue];
+            }
+        }
+
+        squashEffect.minimizeTarget = Number(minimizeTargetValue);
         if (squashEffect.minimizeTarget < 0 || squashEffect.minimizeTarget > 9) {
             squashEffect.minimizeTarget = 0;
         }
@@ -288,6 +310,8 @@ var squashEffect = {
         });
     },
     init: function () {
+        // Ensure saved settings are loaded on startup.
+        squashEffect.loadConfig();
         effect.configChanged.connect(squashEffect.loadConfig);
 
         effects.windowAdded.connect(squashEffect.slotWindowAdded);
