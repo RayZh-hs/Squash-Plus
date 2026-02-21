@@ -67,8 +67,7 @@ var squashEffect = {
         squashEffect.opacity = effect.readConfig("Opacity", 100) / 100.0;
         var minimizeTargetValue = effect.readConfig("MinimizeTarget", 0);
 
-        // Depending on runtime/config migration path, enum values may come back
-        // either as index or as string name. Normalize to index.
+        // Normalize enum values to index.
         if (typeof minimizeTargetValue === "string") {
             var minimizeTargetMap = {
                 TaskManager: 0,
@@ -101,8 +100,6 @@ var squashEffect = {
         squashEffect.curveUnmin = curveMapping[unminIndex];
     },
     getScreenRect: function (window) {
-        // KWin effects scripts don't provide `workspace`.
-        // Try per-window output geometry first, then virtual display bounds.
         if (window && window.output && window.output.geometry) {
             return window.output.geometry;
         }
