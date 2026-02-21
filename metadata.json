@@ -48,6 +48,12 @@
                 "Email": ""
             }
         ],
+        "OtherContributors": [
+            {
+                "Name": "Ray Zhang",
+                "Email": "rayzhangshanghai@hotmail.com"
+            }
+        ],
         "Category": "Appearance",
         "EnabledByDefault": false,
         "Icon": "preferences-system-windows-effect-squash",
